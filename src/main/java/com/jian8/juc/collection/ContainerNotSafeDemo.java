@@ -1,5 +1,7 @@
 package com.jian8.juc.collection;
 
+import org.junit.Test;
+
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -19,6 +21,7 @@ public class ContainerNotSafeDemo {
      * 故障现象
      * java.util.ConcurrentModificationException
      */
+    @Test
     public static void notSafe() {
         List<String> list = new ArrayList<>();
         for (int i = 1; i <= 30; i++) {
@@ -32,6 +35,7 @@ public class ContainerNotSafeDemo {
     /**
      * 解决方案1：使用Vector
      */
+    @Test
     public static void vectorTest(){
         List<String> list = new Vector<>();
         for (int i = 1; i <= 30; i++) {
