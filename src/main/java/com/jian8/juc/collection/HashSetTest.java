@@ -10,7 +10,7 @@ public class HashSetTest {
     public static void main(String[] args) {
 //        notSafe();
 //        safe1();
-        safe2();
+ //       safe2();
     }
     /**
      * 故障现象

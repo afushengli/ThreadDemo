@@ -16,11 +16,33 @@ import java.util.concurrent.atomic.AtomicInteger;
  *      2.2.2 Atomic
  *
  */
+
+
+
+class MyData {
+    // int num = 0;
+    volatile int num = 0;
+
+    public synchronized void addToSixty() {
+        this.num = 60;
+    }
+
+    public void addSelf(){
+        num++;
+    }
+
+    AtomicInteger atomicInteger = new AtomicInteger();
+    public void atomicAddSelf(){
+        atomicInteger.getAndIncrement();
+    }
+}
+
+
 public class VolatileDemo {
 
     public static void main(String[] args) {
-        visibilityByVolatile();//验证volatile的可见性
-//        atomicByVolatile();//验证volatile不保证原子性
+      //  visibilityByVolatile();//验证volatile的可见性
+       atomicByVolatile();//验证volatile不保证原子性
     }
 
     /**
@@ -77,23 +99,6 @@ public class VolatileDemo {
     }
 }
 
-class MyData {
-        int num = 0;
-//    volatile int num = 0;
-
-    public synchronized void addToSixty() {
-        this.num = 60;
-    }
-
-    public void addSelf(){
-        num++;
-    }
-
-    AtomicInteger atomicInteger = new AtomicInteger();
-    public void atomicAddSelf(){
-        atomicInteger.getAndIncrement();
-    }
-}
 
 class ResortSeq{
     int a = 0;

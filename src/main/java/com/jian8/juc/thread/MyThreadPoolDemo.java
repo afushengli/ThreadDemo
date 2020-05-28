@@ -7,17 +7,26 @@ import java.util.concurrent.*;
  */
 public class MyThreadPoolDemo {
     public static void main(String[] args) {
-        ExecutorService threadPool = new ThreadPoolExecutor(3, 5, 1L,
+
+        //   ExecutorService threadPool = Executors.newSingleThreadExecutor();
+                //Executors.newFixedThreadPool(7);
+               // Executors.newCachedThreadPool();
+
+       //   System.out.println(Runtime.getRuntime().availableProcessors());   几核的cpu
+
+        ExecutorService threadPool = new ThreadPoolExecutor(3,
+                5,
+                1L,
                 TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(3),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.DiscardPolicy());
-//new ThreadPoolExecutor.AbortPolicy();
-//new ThreadPoolExecutor.CallerRunsPolicy();
-//new ThreadPoolExecutor.DiscardOldestPolicy();
-//new ThreadPoolExecutor.DiscardPolicy();
+
+ //new ThreadPoolExecutor.AbortPolicy());
+ // new ThreadPoolExecutor.CallerRunsPolicy());
+ // new ThreadPoolExecutor.DiscardOldestPolicy());
+  new ThreadPoolExecutor.DiscardPolicy());
         try {
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 20; i++) {
                 threadPool.execute(() -> {
                     System.out.println(Thread.currentThread().getName() + "\t办理业务");
                 });

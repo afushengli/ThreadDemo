@@ -17,25 +17,30 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class ReadWriteLockDemo {
     public static void main(String[] args) {
+
         MyCache myCache = new MyCache();
+
         for (int i = 1; i <= 5; i++) {
             final int tempInt = i;
             new Thread(() -> {
                 myCache.put(tempInt + "", tempInt + "");
             }, "Thread " + i).start();
         }
+
         for (int i = 1; i <= 5; i++) {
             final int tempInt = i;
             new Thread(() -> {
                 myCache.get(tempInt + "");
             }, "Thread " + i).start();
         }
+
         for (int i = 1; i <= 5; i++) {
             final int tempInt = i;
             new Thread(() -> {
                 myCache.put(tempInt + "", tempInt * 2);
             }, "Thread====" + i).start();
         }
+
     }
 }
 
