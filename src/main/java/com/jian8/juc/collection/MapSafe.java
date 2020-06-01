@@ -12,7 +12,7 @@ public class MapSafe {
     }
 
     public static void notSafe() {
- //       Map<String, String> map = new HashMap<>();
+ //=      Map<String, String> map = new HashMap<>();
 //        Map<String, String> map = new ConcurrentHashMap<>();
        Map<String, String> map = Collections.synchronizedMap(new HashMap<>());
 

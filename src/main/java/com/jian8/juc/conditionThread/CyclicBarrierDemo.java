@@ -9,6 +9,7 @@ public class CyclicBarrierDemo {
     }
 
     public static void cyclicBarrierTest() {
+        //循环屏障
         CyclicBarrier cyclicBarrier = new CyclicBarrier(7, () -> {
             System.out.println("====召唤神龙=====");
         });
